@@ -1,6 +1,6 @@
 img{
     width: 10rem;
-    padding-top: 50px;
+    padding-top: 150px;
     padding-bottom: 50px;
 }
 body{
@@ -8,6 +8,7 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    transform: scale(2);
 }
 form{
     display: flex;
